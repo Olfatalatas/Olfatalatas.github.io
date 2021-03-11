@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -10,7 +13,7 @@
   <meta content="" name="keywords">
 
   <!-- Favicons -->
-  <link href="assets/img/favicon.png" rel="icon">
+  <link rel="icon" type="image/png" href="images/icons/anyjobs.ico" />
   <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
 
   <!-- Google Fonts -->
@@ -43,39 +46,41 @@
     <div class="container d-flex align-items-center">
 
       <div class="logo mr-auto">
-        <h1 class="text-light"><a href="index.html"><span>AnyJobs!</span></a></h1>
+        <h1 class="text-light"><a href="home.php"><span>AnyJobs!</span></a></h1>
         <!-- Uncomment below if you prefer to use an image logo -->
         <!-- <a href="index.html"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
       </div>
 
       <nav class="nav-menu d-none d-lg-block">
         <ul>
-          <li class="active"><a href="index.html">Home</a></li>
+          <li class="active"><a href="home.php">Home</a></li>
           <li><a href="#about">About</a></li>
           <li><a href="#features">Features</a></li>
           <li><a href="#gallery">Gallery</a></li>
           <li><a href="#team">Team</a></li>
-          <li class="drop-down"><a href="">Drop Down</a>
+          <li class="drop-down"><a href="">Booking</a>
             <ul>
-              <li><a href="#">Drop Down 1</a></li>
-              <li class="drop-down"><a href="#">Drop Down 2</a>
+              <li><a href="worker/worker.php">Worker</a></li>
+              <li><a href="booking/customer.php">Customer</a></li>
+              <li><a href="booking/pembayaran.php">Payment</a></li>
+              <li class="drop-down"><a href="#">Other</a>
                 <ul>
-                  <li><a href="#">Deep Drop Down 1</a></li>
-                  <li><a href="#">Deep Drop Down 2</a></li>
-                  <li><a href="#">Deep Drop Down 3</a></li>
-                  <li><a href="#">Deep Drop Down 4</a></li>
-                  <li><a href="#">Deep Drop Down 5</a></li>
+                  <li><a href="riwayatpesan.php">Booked History</a></li>
+                  <li><a href="jobmu.php">Your Task</a></li>
+                  <li><a href="profileuser.php">Profile</a></li>
+                  <li><a href="logoutuser.php">Logout</a></li>
                 </ul>
               </li>
-              <li><a href="#">Drop Down 3</a></li>
-              <li><a href="#">Drop Down 4</a></li>
-              <li><a href="#">Drop Down 5</a></li>
             </ul>
           </li>
           <li><a href="#contact">Contact</a></li>
 
+
         </ul>
-      </nav><!-- .nav-menu -->
+      </nav><!-- nav-menu -->
+      <li class="ri-user-line"> <a>Online</a>
+        <a><?= $_SESSION['username']; ?></a>
+      </li>
 
     </div>
   </header><!-- End Header -->
@@ -125,17 +130,17 @@
 
         <div class="row">
           <div class="col-xl-5 col-lg-6 video-box d-flex justify-content-center align-items-stretch" data-aos="fade-right">
-          
+
           </div>
 
           <div class="col-xl-7 col-lg-6 icon-boxes d-flex flex-column align-items-stretch justify-content-center py-5 px-lg-5" data-aos="fade-left">
-            <h3>Booked Your Services</h3>
+            <h3>Book Your Services</h3>
             <p>Pesan jasa dengan AnyJobs! dapat memudahkan tugas di rumah dan menghemat waktu anda.</p>
 
             <div class="icon-box" data-aos="zoom-in" data-aos-delay="100">
               <div class="icon"><i class="bx bx-fingerprint"></i></div>
               <h4 class="title"><a href="">Trustful</a></h4>
-              <p class="description">Merangkul rasa sakit dan masalah yang membutakan adalah keinginan nakal untuk, dan jangan merusak, oleh siapa mereka menyediakannya.</p>
+              <p class="description">AnyJobs! menjamin keamanan anda dan AnyJobs! tidak akan mencuri dan menyebar luaskan data pribadi anda. Dengan AnyJobs! keamanan anda adalah prioritas kami.</p>
             </div>
 
             <div class="icon-box" data-aos="zoom-in" data-aos-delay="200">
@@ -168,74 +173,50 @@
         <div class="row" data-aos="fade-left">
           <div class="col-lg-3 col-md-4">
             <div class="icon-box" data-aos="zoom-in" data-aos-delay="50">
-              <i class="ri-store-line" style="color: #ffbb2c;"></i>
-              <h3><a href="">Shop</a></h3>
+              <i class="ri-check-double-line" style="color: #ffbb2c;"></i>
+              <h3><a href="booking/customer.php">Order</a></h3>
             </div>
           </div>
           <div class="col-lg-3 col-md-4 mt-4 mt-md-0">
             <div class="icon-box" data-aos="zoom-in" data-aos-delay="100">
-              <i class="ri-bar-chart-box-line" style="color: #5578ff;"></i>
-              <h3><a href="">Statistic</a></h3>
+              <i class="ri-pages-line" style="color: #5578ff;"></i>
+              <h3><a href="riwayatpesan.php">History</a></h3>
             </div>
           </div>
           <div class="col-lg-3 col-md-4 mt-4 mt-md-0">
             <div class="icon-box" data-aos="zoom-in" data-aos-delay="150">
               <i class="ri-calendar-todo-line" style="color: #e80368;"></i>
-              <h3><a href="">Calendar</a></h3>
+              <h3><a class="btn-get-started scrollto" href="#contact">Contact</a></h3>
             </div>
           </div>
           <div class="col-lg-3 col-md-4 mt-4 mt-lg-0">
             <div class="icon-box" data-aos="zoom-in" data-aos-delay="200">
-              <i class="ri-paint-brush-line" style="color: #e361ff;"></i>
-              <h3><a href="">Theme</a></h3>
+              <i class="ri-admin-line" style="color: #e361ff;"></i>
+              <h3><a class="btn-get-started scrollto" href="#team">Admin</a></h3>
             </div>
           </div>
           <div class="col-lg-3 col-md-4 mt-4">
             <div class="icon-box" data-aos="zoom-in" data-aos-delay="250">
               <i class="ri-database-2-line" style="color: #47aeff;"></i>
-              <h3><a href="">AnyPay!</a></h3>
+              <h3><a href="booking/pembayaran.php">AnyPay!</a></h3>
             </div>
           </div>
           <div class="col-lg-3 col-md-4 mt-4">
             <div class="icon-box" data-aos="zoom-in" data-aos-delay="300">
-              <i class="ri-gradienter-line" style="color: #ffa76e;"></i>
-              <h3><a href="">Profile</a></h3>
+              <i class="ri-user-line" style="color: #ffa76e;"></i>
+              <h3><a href="profileuser.php">Profile</a></h3>
             </div>
           </div>
           <div class="col-lg-3 col-md-4 mt-4">
             <div class="icon-box" data-aos="zoom-in" data-aos-delay="350">
               <i class="ri-file-list-3-line" style="color: #11dbcf;"></i>
-              <h3><a href="">Task</a></h3>
+              <h3><a href="worker/worker.php">Task</a></h3>
             </div>
           </div>
           <div class="col-lg-3 col-md-4 mt-4">
             <div class="icon-box" data-aos="zoom-in" data-aos-delay="400">
               <i class="ri-price-tag-2-line" style="color: #4233ff;"></i>
-              <h3><a href="">Home</a></h3>
-            </div>
-          </div>
-          <div class="col-lg-3 col-md-4 mt-4">
-            <div class="icon-box" data-aos="zoom-in" data-aos-delay="450">
-              <i class="ri-anchor-line" style="color: #b2904f;"></i>
-              <h3><a href="">Anchor</a></h3>
-            </div>
-          </div>
-          <div class="col-lg-3 col-md-4 mt-4">
-            <div class="icon-box" data-aos="zoom-in" data-aos-delay="500">
-              <i class="ri-disc-line" style="color: #b20969;"></i>
-              <h3><a href="">AnyMusic!</a></h3>
-            </div>
-          </div>
-          <div class="col-lg-3 col-md-4 mt-4">
-            <div class="icon-box" data-aos="zoom-in" data-aos-delay="550">
-              <i class="ri-base-station-line" style="color: #ff5828;"></i>
-              <h3><a href="">Connect</a></h3>
-            </div>
-          </div>
-          <div class="col-lg-3 col-md-4 mt-4">
-            <div class="icon-box" data-aos="zoom-in" data-aos-delay="600">
-              <i class="ri-fingerprint-line" style="color: #29cc61;"></i>
-              <h3><a href="">Finger</a></h3>
+              <h3><a href="home.php">Home</a></h3>
             </div>
           </div>
         </div>
@@ -498,7 +479,7 @@
             <h4>Freelancer</h4>
             <p>
               <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-             AnyJobs! 4EVER
+              AnyJobs! 4EVER
               <i class="bx bxs-quote-alt-right quote-icon-right"></i>
             </p>
           </div>
@@ -509,7 +490,7 @@
             <h4>Entrepreneur</h4>
             <p>
               <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-              AnyJobs! MANTUL!!!
+              AnyJobs! Dope!!!
               <i class="bx bxs-quote-alt-right quote-icon-right"></i>
             </p>
           </div>
@@ -532,67 +513,20 @@
 
           <div class="col-lg-3 col-md-6">
             <div class="member" data-aos="zoom-in" data-aos-delay="100">
-              <div class="pic"><img src="assets/img/team/team-1.jpg" class="img-fluid" alt=""></div>
+              <div class="pic"><img src="assets/img/team/profil(2).jpg" class="img-fluid" alt=""></div>
               <div class="member-info">
                 <h4>Olfat Alatas</h4>
-                <span>Chief Executive Officer</span>
-                <div class="social">
-                  <a href=""><i class="icofont-twitter"></i></a>
-                  <a href=""><i class="icofont-facebook"></i></a>
-                  <a href=""><i class="icofont-instagram"></i></a>
-                  <a href=""><i class="icofont-linkedin"></i></a>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-3 col-md-6 mt-5 mt-md-0">
-            <div class="member" data-aos="zoom-in" data-aos-delay="200">
-              <div class="pic"><img src="assets/img/team/team-2.jpg" class="img-fluid" alt=""></div>
-              <div class="member-info">
-                <h4>Selena Gomez</h4>
-                <span>Product Manager</span>
-                <div class="social">
-                  <a href=""><i class="icofont-twitter"></i></a>
-                  <a href=""><i class="icofont-facebook"></i></a>
-                  <a href=""><i class="icofont-instagram"></i></a>
-                  <a href=""><i class="icofont-linkedin"></i></a>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-3 col-md-6 mt-5 mt-lg-0">
-            <div class="member" data-aos="zoom-in" data-aos-delay="300">
-              <div class="pic"><img src="assets/img/team/team-3.jpg" class="img-fluid" alt=""></div>
-              <div class="member-info">
-                <h4>William Shakespeare</h4>
                 <span>Developer</span>
                 <div class="social">
-                  <a href=""><i class="icofont-twitter"></i></a>
-                  <a href=""><i class="icofont-facebook"></i></a>
-                  <a href=""><i class="icofont-instagram"></i></a>
-                  <a href=""><i class="icofont-linkedin"></i></a>
+                  <a href="https://twitter.com/olfatalatas"><i class="icofont-twitter"></i></a>
+                  <a href="https://web.facebook.com/olfat.alatas.12"><i class="icofont-facebook"></i></a>
+                  <a href="https://www.instagram.com/olfatalatas/"><i class="icofont-instagram"></i></a>
+                  <a href="profil/profil.php"><i class="icofont-user"></i></a>
                 </div>
               </div>
             </div>
           </div>
 
-          <div class="col-lg-3 col-md-6 mt-5 mt-lg-0">
-            <div class="member" data-aos="zoom-in" data-aos-delay="400">
-              <div class="pic"><img src="assets/img/team/team-4.jpg" class="img-fluid" alt=""></div>
-              <div class="member-info">
-                <h4>Carly Rae Jepson</h4>
-                <span>Accountant</span>
-                <div class="social">
-                  <a href=""><i class="icofont-twitter"></i></a>
-                  <a href=""><i class="icofont-facebook"></i></a>
-                  <a href=""><i class="icofont-instagram"></i></a>
-                  <a href=""><i class="icofont-linkedin"></i></a>
-                </div>
-              </div>
-            </div>
-          </div>
 
         </div>
 
@@ -600,6 +534,17 @@
     </section><!-- End Team Section -->
 
     <!-- ======= Contact Section ======= -->
+    <?php include('koneksi.php');
+    if (isset($_POST['send'])) {
+      $name = $_POST['name'];
+      $email = $_POST['email'];
+      $subject = $_POST['subject'];
+      $message = $_POST['message'];
+      $sql1 = "INSERT INTO kontak (nama,email,subjek,pesan) VALUES('$name','$email','$subject','$message')";
+      $lastInsertId = mysqli_query($koneksi, $sql1);
+      echo "<script>alert('Data pesan sukses');</script>";
+    }
+    ?>
     <section id="contact" class="contact">
       <div class="container">
 
@@ -615,7 +560,7 @@
               <div class="address">
                 <i class="icofont-google-map"></i>
                 <h4>Location:</h4>
-                <p>A108 Adam Street, New York, NY 535022</p>
+                <p>25, Jl. Raya Langsep, Malang, Indonesia</p>
               </div>
 
               <div class="email">
@@ -636,7 +581,7 @@
 
           <div class="col-lg-8 mt-5 mt-lg-0" data-aos="fade-left" data-aos-delay="200">
 
-            <form action="forms/contact.php" method="post" role="form" class="php-email-form">
+            <form action="" method="POST">
               <div class="form-row">
                 <div class="col-md-6 form-group">
                   <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
@@ -655,12 +600,7 @@
                 <textarea class="form-control" name="message" rows="5" data-rule="required" data-msg="Please write something for us" placeholder="Message"></textarea>
                 <div class="validate"></div>
               </div>
-              <div class="mb-3">
-                <div class="loading">Loading</div>
-                <div class="error-message"></div>
-                <div class="sent-message">Your message has been sent. Thank you!</div>
-              </div>
-              <div class="text-center"><button type="submit">Send Message</button></div>
+              <div class="text-center"><button type="submit" name="send">Send Message</button></div>
             </form>
 
           </div>
@@ -683,17 +623,16 @@
               <h3>AnyJobs!</h3>
               <p class="pb-3"><em>Ease your jobs with AnyJobs!</em></p>
               <p>
-                A108 Adam Street <br>
-                NY 535022, USA<br><br>
+                25, Jl. Raya Langsep <br>
+                Malang , Indonesia<br><br>
                 <strong>Phone:</strong> +62 896 8358 6173<br>
                 <strong>Email:</strong> olfatharits@gmail.com<br>
               </p>
               <div class="social-links mt-3">
-                <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
-                <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
-                <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
-                <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
-                <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+                <a href="https://twitter.com/olfatalatas" class="twitter"><i class="bx bxl-twitter"></i></a>
+                <a href="https://web.facebook.com/olfat.alatas.12" class="facebook"><i class="bx bxl-facebook"></i></a>
+                <a href="https://www.instagram.com/olfatalatas/" class="instagram"><i class="bx bxl-instagram"></i></a>
+                <a href="https://secure.skype.com/portal/profile" class="skype"><i class="bx bxl-skype"></i></a>
               </div>
             </div>
           </div>
@@ -701,8 +640,8 @@
           <div class="col-lg-2 col-md-6 footer-links">
             <h4>Useful Links</h4>
             <ul>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Home</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">About us</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="home.php">Home</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a class="btn-get-started scrollto" href="#details">About us</a></li>
               <li><i class="bx bx-chevron-right"></i> <a href="#">Services</a></li>
               <li><i class="bx bx-chevron-right"></i> <a href="#">Terms of service</a></li>
               <li><i class="bx bx-chevron-right"></i> <a href="#">Privacy policy</a></li>
@@ -712,19 +651,27 @@
           <div class="col-lg-2 col-md-6 footer-links">
             <h4>Our Services</h4>
             <ul>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Home</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">About</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">AnyPay!</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">AnyMusic!</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Features</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="home.php">Home</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a class="btn-get-started scrollto" href="#about">About</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="booking/pembayaran.php">AnyPay!</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="worker/worker.php">Task</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a class="btn-get-started scrollto" href="#features">Features</a></li>
             </ul>
           </div>
 
           <div class="col-lg-4 col-md-6 footer-newsletter">
             <h4>Our Newsletter</h4>
-            <p>Masukkan saran anda</p>
-            <form action="" method="post">
-              <input type="email" name="email"><input type="submit" value="Send">
+            <p>Masukkan email anda</p>
+            <?php include('koneksi.php');
+            if (isset($_POST['send'])) {
+              $email = $_POST['email'];
+              $sql1 = "INSERT INTO newsletter (email) VALUES('$email')";
+              $lastInsertId = mysqli_query($koneksi, $sql1);
+              echo "<script>alert('Data sukses dikirim');</script>";
+            }
+            ?>
+            <form action="" method="POST">
+              <input type="email" name="email"><input type="submit" value="Send" name="send">
             </form>
 
           </div>
@@ -738,11 +685,7 @@
         &copy; Copyright <strong><span>AnyJobs!</span></strong>. All Rights Reserved
       </div>
       <div class="credits">
-        <!-- All the links in the footer should remain intact. -->
-        <!-- You can delete the links only if you purchased the pro version. -->
-        <!-- Licensing information: https://bootstrapmade.com/license/ -->
-        <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/bootslander-free-bootstrap-landing-page-template/ -->
-        Designed by <a href="https://bootstrapmade.com/">Olfat Harits Alatas</a>
+        Designed by <a>Olfat Harits Alatas</a>
       </div>
     </div>
   </footer><!-- End Footer -->
